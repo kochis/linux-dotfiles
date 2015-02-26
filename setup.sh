@@ -16,7 +16,14 @@ ln -s ~/.dotfiles/tmux.conf ~/.tmux.conf
 echo 'Setting vim config'
 git clone https://github.com/gmarik/vundle.git ~/.vim/bundle/vundle
 
-ln -s ~/.dotfiles/vimrc ~/.vimrc
+if [ -f ~/.vimrc ]
+then
+  echo -e "\n#custom vimrc"
+  echo -e "source ~/.dotfiles/vimrc" >> ~/.vimrc
+else
+  ln -s ~/.dotfiles/vimrc ~/.vimrc
+fi
+
 ln -s ~/.dotfiles/gvimrc ~/.gvimrc
 
 vim +BundleInstall +qall

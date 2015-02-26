@@ -3,8 +3,8 @@ echo 'Symlinking dotfiles'
 
 if [ -f ~/.bashrc ]
 then
-  echo 'IMPORTANT: source .bash_profile from .bashrc'
-  ln -s ~/.dotfiles/bashrc ~/.bash_profile
+  echo -e "\n#custom bashrc"
+  echo -e "source ~/.dotfiles/bashrc" >> ~/.bashrc
 else
   ln -s ~/.dotfiles/bashrc ~/.bashrc
 fi
